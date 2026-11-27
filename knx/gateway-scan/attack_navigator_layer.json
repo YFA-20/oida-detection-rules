@@ -1,0 +1,76 @@
+{
+  "name": "OIDA KNX gateway-scan fingerprint",
+  "versions": {
+    "attack": "17",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Behaviour fingerprinted for `oida knx <IP> -p 3671 --gateway-scan --tcp` (OIDA 1.0.6): TCP tunnel CONNECT_REQUEST, sweep of 255 individual addresses with DeviceDescriptorRead over TUNNELING_REQUEST, multicast SEARCH_REQUEST to 224.0.23.12:3671, DESCRIPTION_REQUEST for gateway information. Detected by Suricata SIDs 9999960-9999969.",
+  "filters": {
+    "platforms": ["Linux", "Windows", "Embedded", "Network Devices"]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": true,
+    "showName": true,
+    "showSubtechniques": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0840",
+      "tactic": "discovery",
+      "color": "#ff6666ff",
+      "comment": "TCP tunnel + bus sweep maps communication patterns (SIDs 9999960/9999961/9999962/9999969)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T0846",
+      "tactic": "discovery",
+      "color": "#ff6666ff",
+      "comment": "DeviceDescriptorRead sweep 1.1.1-1.1.255 (SIDs 9999961/9999962)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T0846.003",
+      "tactic": "discovery",
+      "color": "#ff6666ff",
+      "comment": "SEARCH_REQUEST multicast 224.0.23.12:3671 (SID 9999963)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T0888",
+      "tactic": "discovery",
+      "color": "#ff6666ff",
+      "comment": "DESCRIPTION_REQUEST gateway info: name, MAC, serial, services (SIDs 9999964/9999965)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    }
+  ],
+  "gradient": {
+    "colors": ["#ff6666ff", "#ffe766ff"],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}
