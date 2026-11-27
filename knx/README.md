@@ -36,7 +36,7 @@ UDP tunneling is rejected by many IP routers and by loopback/NAT'd targets;
 
 | Option | Capability |
 | --- | --- |
-| `--gateway-scan` | discover KNX/IP gateways: multicast SEARCH_REQUEST + unicast DESCRIPTION_REQUEST, then device scan |
+| `--gateway-scan` | discover KNX/IP gateways: multicast SEARCH_REQUEST, unicast DESCRIPTION_REQUEST, then device scan |
 | `--bus-scan` | sweep bus devices and listen for traffic |
 | `--listen` / `-L SECONDS` | passive monitor, no probes |
 | `-r/--scan-range` | custom individual-address range (e.g. `1.1.1-1.1.255`) |
@@ -55,7 +55,7 @@ UDP tunneling is rejected by many IP routers and by loopback/NAT'd targets;
 | `--adc-read` | read ADC channel | no |
 | `--memory-write`, `--property-write`, `--fuzz-property` | write memory / property | `--confirm` |
 | `--group-write ADDR:VALUE` | write a group address | `--confirm` |
-| `--restart`, `--master-reset MODE` | reboot / master reset a BCU | `-i` + `--confirm` |
+| `--restart`, `--master-reset MODE` | reboot / master reset a BCU | `-i`, `--confirm` |
 
 ### Authentication (BCU keys)
 
@@ -74,4 +74,4 @@ UDP tunneling is rejected by many IP routers and by loopback/NAT'd targets;
 
 | Command | Subfolder | Detection |
 | --- | --- | --- |
-| `oida knx <IP> -p 3671 --gateway-scan --tcp` | [`gateway-scan/`](gateway-scan/) | CONNECT_REQUEST + DeviceDescriptorRead sweep + gateway DESCRIPTION_REQUEST, correlated by xbits |
+| `oida knx <IP> -p 3671 --gateway-scan --tcp` | [`gateway-scan/`](gateway-scan/) | CONNECT_REQUEST, DeviceDescriptorRead sweep, gateway DESCRIPTION_REQUEST, correlated by xbits |

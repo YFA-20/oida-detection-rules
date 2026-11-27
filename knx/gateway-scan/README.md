@@ -60,7 +60,7 @@ KNXnet/IP frame:
 | SID | Match | Priority | Alerts on reference capture |
 | --- | --- | --- | --- |
 | `9999960` | CONNECT_REQUEST `06 10 02 05` on TCP/3671; sets `xbits knx_tcp_connect` | 3 | 2 |
-| `9999961` | scan probe: TUNNELING_REQUEST + cEMI `11 00 B0 60` + APCI `00 80`; sets `xbits knx_scan_probe` | 3 | 522 |
+| `9999961` | scan probe: TUNNELING_REQUEST, cEMI `11 00 B0 60`, APCI `00 80`; sets `xbits knx_scan_probe` | 3 | 522 |
 | `9999962` | same probe with `threshold`: >= 20 probes in 600 s from one source | 2 | 3 |
 | `9999963` | SEARCH_REQUEST `06 10 02 01` to 224.0.23.12:3671 (UDP multicast); sets `xbits knx_search` | 3 | not in the `lo` capture |
 | `9999964` | DESCRIPTION_REQUEST `06 10 02 03` on TCP/3671 | 3 | 0 (this capture used UDP) |
@@ -99,7 +99,7 @@ MITRE ATT&CK Navigator layer (ICS matrix):
 
 | Technique | Why |
 | --- | --- |
-| T0840 Network Connection Enumeration | tunnel + bus sweep maps device communication patterns |
+| T0840 Network Connection Enumeration | tunnel, bus sweep maps device communication patterns |
 | T0846 Remote System Discovery | 255-address DeviceDescriptorRead sweep |
 | T0846.003 Multicast Discovery | SEARCH_REQUEST to 224.0.23.12:3671 |
 | T0888 Remote System Information Discovery | DESCRIPTION_REQUEST (name, MAC, serial, services) |

@@ -24,7 +24,7 @@
       "techniqueID": "T0840",
       "tactic": "discovery",
       "color": "#ff6666ff",
-      "comment": "TCP tunnel + bus sweep maps communication patterns (SIDs 9999960/9999961/9999962/9999969)",
+      "comment": "TCP tunnel, bus sweep maps communication patterns (SIDs 9999960/9999961/9999962/9999969)",
       "enabled": true,
       "metadata": [],
       "links": [],
